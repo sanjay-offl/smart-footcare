@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* iOS Glass Background */
+body {
+  @apply bg-gradient-to-b from-[#f7fdf9] via-[#f1f8f4] to-[#eef7f1] text-medical-dark transition-colors duration-300;
+}
+
+html.dark body {
+  @apply bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900;
+}
+
+/* Focus States */
+*:focus-visible {
+  @apply outline-none ring-2 ring-medical-green ring-offset-2;
+}
+
+html.dark *:focus-visible {
+  @apply ring-offset-slate-900;
+}
+
+/* Smooth Transitions */
+button,
+a,
+input,
+select,
+textarea {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Glass Input */
+input,
+textarea,
+select {
+  @apply rounded-3xl border-2 border-glass-border bg-glass-white/50 backdrop-blur-md px-6 py-3 text-base font-medium text-medical-dark placeholder-medical-light focus:border-medical-green focus:bg-glass-white focus:ring-0;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-medical-green/30 rounded-full hover:bg-medical-green/50;
+}
+
+/* Glass Card Base */
+.glass-card {
+  @apply rounded-3xl backdrop-blur-xl bg-white/30 border border-white/20 shadow-xl shadow-black/5;
+}
+
+.glass-card:hover {
+  @apply bg-white/40 border-white/30 transition-all duration-300;
+}
+
+/* Glass Button */
+.glass-button {
+  @apply min-h-[50px] rounded-3xl bg-white/30 backdrop-blur-md border border-white/20 font-semibold text-medical-dark shadow-lg shadow-black/5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] hover:bg-white/40 focus-visible:ring-2 focus-visible:ring-medical-green;
+}
+
+.glass-button-primary {
+  @apply bg-gradient-to-br from-medical-green to-emerald-600 text-white border border-emerald-400/30 hover:shadow-lg hover:shadow-medical-green/20 hover:scale-[1.02] active:scale-[0.98];
+}
+
+.glass-button-secondary {
+  @apply bg-white/40 text-medical-dark border-white/30 hover:bg-white/50;
+}
+
+.glass-button-danger {
+  @apply bg-gradient-to-br from-medical-red to-red-600 text-white border border-red-400/30 hover:shadow-lg hover:shadow-medical-red/20;
+}
+
+/* Typography */
+.text-glass-title {
+  @apply text-4xl font-bold text-medical-dark tracking-tight;
+}
+
+.text-glass-subtitle {
+  @apply text-xl font-semibold text-medical-light;
+}
+
+.text-glass-body {
+  @apply text-lg text-medical-dark opacity-75;
+}
+
+/* Reduce Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    @apply bg-white;
+  }
+}
+
+
